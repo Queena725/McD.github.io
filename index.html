@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <div class="image-container">
+        <img src="MC images/Gold.png" alt="McDonald's Logo" class="top-image" id="image1">
+       
+    </div>
+    
+    <link rel="stylesheet" href="MC.css">
+    <link rel="stylesheet" href="MC.js">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Even Sum McDonald's Menu </title>
+    <style>
+
+body {
+    background: url('MC images/bg.png'); 
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: "Comic Sans MS", sans-serif; 
+}
+
+        body {
+            font-family: Arial, sans-serif; 
+            text-align: center;
+            margin: 20px;
+            background-color: #ffffff;
+            color: #ff0505;
+            size: 120px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        input {
+            margin: 5px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #ff0505;
+            color: #ffffff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #de0808;
+        }
+
+        .image-gallery {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .image-gallery img {
+            max-width: 250px;
+            border-radius: 10px;
+           
+        }
+
+     
+    </style>
+</head>
+<body>
+
+    <h1>Build Your McDonald's Menu </h1>
+    <p>Enter two characters below. If their sum is even, a new McDonald's menu will appear. Try it out and see which menu item you'll collect!</p>
+<p1> <small> * based on the ASCII values of the characters *  </small></p1>
+</p>
+
+    <input type="text" id="charInput1" maxlength="1" placeholder="Enter first character">
+    <input type="text" id="charInput2" maxlength="1" placeholder="Enter second character">
+
+
+    <button onclick="checkSum()">Add Menu Item</button>
+
+
+    <div class="image-gallery" id="imageGallery"></div>
+
+    <script>
+        function checkSum() {
+            const input1 = document.getElementById("charInput1").value;
+            const input2 = document.getElementById("charInput2").value;
+            const gallery = document.getElementById("imageGallery");
+
+        
+            if (!input1 || !input2 || input1.length !== 1 || input2.length !== 1) {
+                alert("Please enter exactly one character in both fields.");
+                return;
+            }
+
+     
+            const ascii1 = input1.charCodeAt(0);
+            const ascii2 = input2.charCodeAt(0);
+
+      
+            const sum = ascii1 + ascii2;
+
+ 
+            if (sum % 2 === 0) {
+                const img = document.createElement("img");
+                img.src = getRandomMenuImage(); 
+                img.alt = "McDonald's Menu Item";
+                gallery.appendChild(img);
+            } else {
+                alert("Sum is odd! Try again with different characters.");
+            }
+        }
+
+        function getRandomMenuImage() {
+            const images = [
+                "MC images/1.png",     
+                "MC images/2.png",       
+                "MC images/3.png",   
+                "MC images/4.png",  
+                "MC images/5.png",   
+                "MC images/6.png",
+                "MC images/7.png",
+                "MC images/8.png",     
+                "MC images/9.png",       
+                "MC images/10.png",   
+                "MC images/11.png",  
+                "MC images/12.png",   
+                "MC images/13.png",
+                "MC images/14.png",
+                "MC images/15.png",
+                "MC images/16.png",
+
+            ];
+            return images[Math.floor(Math.random() * images.length)];
+        }
+    </script>
+
+</body>
+</html>

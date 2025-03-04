@@ -1,0 +1,99 @@
+
+.top-image {
+    margin-top: 20px; 
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+    padding-bottom: 20px;
+    animation: scoop 2s ease-in-out infinite alternate;
+    height: auto;
+    filter: drop-shadow(5px 5px 0px #ff0505); 
+    transition: transform 0.3s ease-in-out;
+}
+
+.top-image-container:hover .top-image {
+    opacity: 0; 
+}
+
+.top-image:hover {
+    transform: rotate(-5deg) scale(1.1); 
+}
+
+
+.image-gallery {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.image-gallery img {
+    max-width: 250px;  
+    height: auto;
+}
+
+
+@media (max-width: 768px) {
+    .image-gallery img {
+        max-width: 150px;  
+    }
+}
+
+
+body {
+    padding-top: 80px; 
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #ff0505;
+    background: url('MC images/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+h1 {
+    font-size: 2rem;
+    margin-top: 20px; 
+}
+
+
+p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+
+input {
+    margin: 5px;
+    padding: 8px;
+    font-size: 16px;
+}
+
+
+button {
+    padding: 10px 20px;
+    background-color: #ff0505;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #de0808;
+}
+
+
+.image-gallery {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+  
+}
