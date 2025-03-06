@@ -1,153 +1,213 @@
-<!DOCTYPE html>
-<html lang="en">
-    <div class="image-container">
-        <img src="MC images/Gold.png" alt="McDonald's Logo" class="top-image" id="image1">
-       
-    </div>
-    
-    <link rel="stylesheet" href="MC.css">
-    <link rel="stylesheet" href="MC.js">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Even Sum McDonald's Menu </title>
-    <style>
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <link rel="stylesheet" href="MC.css">
+                </head>
+                <body>
+                    <div class="image-container">
+                        <img src="MC images/Gold.png" alt="McDonald's Logo" class="top-image" id="image1">
+                    </div>
+                
 
-body {
-    background: url('MC images/bg.png'); 
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-family: "Comic Sans MS", sans-serif; 
-}
-
-        body {
-            font-family: Arial, sans-serif; 
-            text-align: center;
-            margin: 20px;
-            background-color: #ffffff;
-            color: #ff0505;
-            size: 120px;
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-
-        p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        input {
-            margin: 5px;
-            padding: 8px;
-            font-size: 16px;
-        }
-
-        button {
-            padding: 10px 20px;
-            background-color: #ff0505;
-            color: #ffffff;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            border-radius: 5px;
-        }
-
-        button:hover {
-            background-color: #de0808;
-        }
-
-        .image-gallery {
-            margin-top: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .image-gallery img {
-            max-width: 250px;
-            border-radius: 10px;
+                    <div id="imageGallery"></div>
+                
+                    <script src="MC.js"></script>
            
-        }
-
-     
-    </style>
-</head>
-<body>
-
-    <h1>Build Your McDonald's Menu </h1>
-    <p>Enter two characters below. If their sum is even, a new McDonald's menu will appear. Try it out and see which menu item you'll collect!</p>
-<p1> <small> * based on the ASCII values of the characters *  </small></p1>
-</p>
-
-    <input type="text" id="charInput1" maxlength="1" placeholder="Enter first character">
-    <input type="text" id="charInput2" maxlength="1" placeholder="Enter second character">
-
-
-    <button onclick="checkSum()">Add Menu Item</button>
-
-
-    <div class="image-gallery" id="imageGallery"></div>
-
-    <script>
-        function checkSum() {
-            const input1 = document.getElementById("charInput1").value;
-            const input2 = document.getElementById("charInput2").value;
-            const gallery = document.getElementById("imageGallery");
-
+                
+            <style>
+                body {
+                    padding-top: 80px;
+                    font-family: Arial, sans-serif;
+                    text-align: center;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #ffffff;
+                    color: #ff0505;
+                    background: url('MC images/bg.png');
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                }
         
-            if (!input1 || !input2 || input1.length !== 1 || input2.length !== 1) {
-                alert("Please enter exactly one character in both fields.");
-                return;
-            }
+                h1 {
+                    font-size: 2rem;
+                    margin-top: 20px;
+                }
+        
+                p {
+                    font-size: 1rem;
+                    margin-bottom: 20px;
+                    line-height: 1.5;
+                }
+        
+                input {
+                    margin: 5px;
+                    padding: 8px;
+                    font-size: 16px;
+                }
+        
+                button {
+                    padding: 10px 20px;
+                    background-color: #ff0505;
+                    color: #ffffff;
+                    border: none;
+                    cursor: pointer;
+                    font-size: 16px;
+                    border-radius: 5px;
+                }
+        
+                button:hover {
+                    background-color: #de0808;
+                }
+        
+                #menuForm {
+                    text-align: center;
+                    margin: 20px;
+                }
+        
+                #menuForm label {
+                    display: block;
+                    margin-top: 10px;
+                    font-size: 16px;
+                }
+        
+                #menuForm input {
+                    margin: 10px;
+                    padding: 8px;
+                    font-size: 14px;
+                    border: 1px solid #ddd;
+                    border-radius: 5px;
+                }
+        
+                #imageGallery {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    margin-top: 20px;
+                }
+        
+                #imageGallery img {
+                    border-radius: 10px;
+                    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                    margin: 5px;
+                    width: 100px;
+                }
+        
+                #menuForm button {
+                    padding: 10px 20px;
+                    background-color: #ff4500;
+                    color: white;
+                    border: none;
+                    cursor: pointer;
+                    border-radius: 5px;
+                    font-size: 16px;
+                }
+        
+                #menuForm button:hover {
+                    background-color: #e63900;
+                }
+        
+            </style>
+        </head>
+        <body>
+            <h1>McDonald's Menu</h1>
 
-     
-            const ascii1 = input1.charCodeAt(0);
-            const ascii2 = input2.charCodeAt(0);
+            
+          
+            <div id="menuInstructions">
+                <ul>
+                    <li><strong>B</strong>: Burger</li>
+                    <li><strong>F</strong>: Fries</li>
+                    <li><strong>C</strong>: Coke</li>
+                    <li><strong>S</strong>: Sprite</li>
+                    <li><strong>I</strong>: Ice Cream</li>
+                    <li><strong>M</strong>: McFlurry</li>
+                </ul>
+               
+            </div>
+            <div id="menuForm">
+                <h2>Select Your Menu</h2>
+                <label for="itemInput">Enter Menu Key </label>
 
-      
-            const sum = ascii1 + ascii2;
+                <input type="text" id="itemInput" maxlength="1" placeholder="Menu Key" />
+        
+                <label for="itemQuantity">Enter Quantity:</label>
+                <input type="number" id="itemQuantity" min="1" value="1" />
+        
+                <button onclick="addToOrder()">Add to Order</button>
+            </div>
+        
 
- 
-            if (sum % 2 === 0) {
-                const img = document.createElement("img");
-                img.src = getRandomMenuImage(); 
-                img.alt = "McDonald's Menu Item";
-                gallery.appendChild(img);
-            } else {
-                alert("Sum is odd! Try again with different characters.");
-            }
-        }
+            
+        
+            <script>
+               
+                function getItemImage(item) {
+                    const menuImages = {
+                        B: "MC images/burger.png",
+                        F: "MC images/fries.png",
+                        C: "MC images/coke.png",
+                        S: "MC images/sprite.png",
+                        I: "MC images/icecream.png",
+                        M: "MC images/mcflurry.png",
+                    };
+                    return menuImages[item.toUpperCase()] || null;
+                }
+        
+               
+                function addToOrder() {
+                    const itemInput = document.getElementById("itemInput").value.toUpperCase();
+                    const itemQuantity = parseInt(document.getElementById("itemQuantity").value);
+                    const gallery = document.getElementById("imageGallery");
+        
+                   
+                    if (!itemInput || !getItemImage(itemInput)) {
+                        alert("Invalid menu key. Please enter a valid key (B, F, C, etc.).");
+                        return;
+                    }
+        
+                    if (isNaN(itemQuantity) || itemQuantity < 1) {
+                        alert("Please enter a valid quantity (1 or more).");
+                        return;
+                    }
+        
+                   
+                    for (let i = 0; i < itemQuantity; i++) {
+                        const img = document.createElement("img");
+                        img.src = getItemImage(itemInput);
+                        img.alt = itemInput;
+                        gallery.appendChild(img);
+                    }
+                }
+        
 
-        function getRandomMenuImage() {
-            const images = [
-                "MC images/1.png",     
-                "MC images/2.png",       
-                "MC images/3.png",   
-                "MC images/4.png",  
-                "MC images/5.png",   
-                "MC images/6.png",
-                "MC images/7.png",
-                "MC images/8.png",     
-                "MC images/9.png",       
-                "MC images/10.png",   
-                "MC images/11.png",  
-                "MC images/12.png",   
-                "MC images/13.png",
-                "MC images/14.png",
-                "MC images/15.png",
-                "MC images/16.png",
+                const menuPrices = {
+                    B: 5, // Burger: $5
+                    F: 3, // Fries: $3
+                    C: 2, // Coke: $2
+                    S: 2, // Sprite: $2
+                    I: 4, // Ice Cream: $4
+                    M: 6  // McFlurry: $6
+                };
+        
+                function calculateTotal() {
+                    let total = 0;
+                    document.querySelectorAll("#imageGallery img").forEach(img => {
+                        const menuKey = img.alt;
+                        total += menuPrices[menuKey];
+                    });
+                    alert(`Total Price: $${total}`);
+                }
+        
 
-            ];
-            return images[Math.floor(Math.random() * images.length)];
-        }
-    </script>
-
-</body>
-</html>
+                function resetOrder() {
+                    const gallery = document.getElementById("imageGallery");
+                    gallery.innerHTML = ""; 
+                }
+            </script>
+        </body>
+        </html>
+        
