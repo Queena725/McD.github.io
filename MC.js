@@ -1,31 +1,63 @@
-function checkSum() {
-    const input1 = document.getElementById("charInput1").value;
-    const input2 = document.getElementById("charInput2").value;
+
+function getItemImage(item) {
+    const menuImages = {
+        B: "MC images/burger.png",
+        F: "MC images/fries.png",
+        C: "MC images/coke.png",
+        S: "MC images/sprite.png",
+        I: "MC images/icecream.png",
+        M: "MC images/mcflurry.png",
+    };
+    return menuImages[item.toUpperCase()] || null;
+}
+
+
+function addToOrder() {
+    const itemInput = document.getElementById("itemInput").value.toUpperCase();
+    const itemQuantity = parseInt(document.getElementById("itemQuantity").value);
     const gallery = document.getElementById("imageGallery");
 
- 
-    if (!input1 || !input2 || input1.length !== 1 || input2.length !== 1) {
-        alert("Please enter exactly one character in both fields.");
+
+    if (!itemInput || !getItemImage(itemInput)) {
+        alert("Invalid menu key. Please enter a valid key (B, F, C, etc.).");
         return;
     }
 
-   
-    const ascii1 = input1.charCodeAt(0);
-    const ascii2 = input2.charCodeAt(0);
-
-  
-    const sum = ascii1 + ascii2;
-
-
-    if (sum % 2 === 0) {
-        const img = document.createElement("img");
-        img.src = getRandomMenuImage(); 
-        img.alt = "McDonald's Menu Item";
-        gallery.appendChild(img);
-
-       
-        window.scrollTo(0, 0);
-    } else {
-        alert("Sum is odd! Try again with different characters.");
+    if (isNaN(itemQuantity) || itemQuantity < 1) {
+        alert("Please enter a valid quantity (1 or more).");
+        return;
     }
+
+    
+    for (let i = 0; i < itemQuantity; i++) {
+        const img = document.createElement("img");
+        img.src = getItemImage(itemInput);
+        img.alt = itemInput;
+        gallery.appendChild(img);
+    }
+}
+
+
+const menuPrices = {
+    B: 5, 
+    F: 3, 
+    C: 2, 
+    S: 2, 
+    I: 4, 
+    M: 6  
+};
+
+function calculateTotal() {
+    let total = 0;
+    document.querySelectorAll("#imageGallery img").forEach(img => {
+        const menuKey = img.alt;
+        total += menuPrices[menuKey];
+    });
+    alert(`Total Price: $${total}`);
+}
+
+
+function resetOrder() {
+    const gallery = document.getElementById("imageGallery");
+    gallery.innerHTML = ""; 
 }
