@@ -1,9 +1,31 @@
+body {
+    padding-top: 80px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    color: #ff0505;
+    background: url('MC images/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.image-container {
+    max-width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
 
 .top-image {
-    margin-top: 20px; 
+    margin-top: 20px;
     display: block;
     margin: 0 auto;
-    max-width: 500px;
+    width: 100%; 
+    max-width: 500px; 
     padding-bottom: 20px;
     animation: scoop 2s ease-in-out infinite alternate;
     height: auto;
@@ -20,80 +42,158 @@
 }
 
 
-.image-gallery {
-    margin-top: 20px;
+@media only screen and (max-width: 768px) {
+    .top-image {
+        max-width: 80%; 
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    .top-image {
+        max-width: 70%; 
+    }
+}
+
+#menuForm {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 20px; 
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 100%; 
+    height: 100%;
+}
+
+
+#menuForm select {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+#menuForm input[type="number"] {
+    padding: 10px;
+    font-size: 16px;
+    width: 60px; 
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+
+#menuForm button {
+    padding: 10px 20px;
+    background-color: #ff4500;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#menuForm button:hover {
+    background-color: #e63900;
+}
+
+
+#imageGallery {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 15px;
+    margin-top: 20px;
 }
 
-.image-gallery img {
-    max-width: 250px;  
-    height: auto;
+#imageGallery img {
+    border-radius: 0px; 
+    box-shadow: none; 
+    margin: 5px;
+    width: 100px;
 }
 
 
-@media (max-width: 768px) {
-    .image-gallery img {
-        max-width: 150px;  
+#menuInstructions {
+    background-color: #ffffff; 
+    border: 2px solid #ff0505; 
+    border-radius: 10px;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 400px; 
+    text-align: left;
+    font-family: Arial, sans-serif;
+}
+
+#menuInstructions h2 {
+    font-size: 1.2rem;
+    color: #ff0505;
+    margin-bottom: 10px;
+}
+
+#menuInstructions ul {
+    list-style-type: none; 
+    padding: 0;
+    margin: 0;
+}
+
+#menuInstructions ul li {
+    font-size: 0.9rem;
+    margin: 6px 0;
+    padding-left: 10px;
+}
+
+#menuInstructions ul li strong {
+    color: #ff4500;
+    font-weight: bold;
+}
+
+
+
+
+
+@media only screen and (max-width: 768px) {
+    #menuForm {
+        flex-direction: column; 
+        gap: 10px; 
+    }
+
+    #menuForm select,
+    #menuForm input[type="number"],
+    #menuForm button {
+        width: 90%; 
+        font-size: 14px; 
     }
 }
 
 
-body {
-    padding-top: 80px; 
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 20px;
-    background-color: #ffffff;
-    color: #ff0505;
-    background: url('MC images/bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
+@media only screen and (max-width: 480px) {
+    #menuForm {
+        flex-direction: column; 
+        gap: 10px;
+    }
+
+    #menuForm select,
+    #menuForm input[type="number"],
+    #menuForm button {
+        width: 100%;
+        font-size: 12px; 
+    }
+
+    #menuForm button {
+        padding: 8px 16px; 
+    }
 }
 
 
-h1 {
-    font-size: 2rem;
-    margin-top: 20px; 
-}
+@media only screen and (min-width: 1024px) {
+    #menuForm {
+        flex-direction: row; 
+        gap: 20px;
+    }
 
-
-p {
-    font-size: 1rem;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-
-input {
-    margin: 5px;
-    padding: 8px;
-    font-size: 16px;
-}
-
-
-button {
-    padding: 10px 20px;
-    background-color: #ff0505;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #de0808;
-}
-
-
-.image-gallery {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-  
+    #menuForm select,
+    #menuForm input[type="number"],
+    #menuForm button {
+        width: auto; 
+    }
 }
